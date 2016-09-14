@@ -12,7 +12,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     
-    var posts = [Post]()
+    
+    //var posts = [Post]()      *this can be removed*
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,22 +21,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        let post1 = Post(imagePath: "", title: "POST 1", description: "Test post for testing purposes")
-        posts.append(post1)
+        //load saved posts
+        DataService.instance.loadPosts()
         
-        let post2 = Post(imagePath: "", title: "Post 2", description: "THE THE THE THE THE THE THE THE THE THE THE THE THE")
-        posts.append(post2)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.onPostsLoaded(_:)), name: "postsLoaded", object: nil)
         
-        let post3 = Post(imagePath: "", title: "Post 3", description: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-        
-        posts.append(post3)
-        
-        tableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -44,7 +34,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let post = posts[indexPath.row]
+        //* and replaced with this
+        let post = DataService.instance.loadedPosts[indexPath.row]
         
         //if there is a cell available to use, give it and make it a PostCell
         if let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as? PostCell {
@@ -58,7 +49,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return DataService.instance.loadedPosts.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            tableView.beginUpdates()
+            
+            //delete the cell contents
+            DataService.instance.loadedPosts.removeAtIndex(indexPath.row)
+            
+            //delete the actual cell
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            
+            //call for this item to be removed from NSUserDefaults
+            DataService.instance.deletePost([indexPath.row])
+            
+            tableView.endUpdates()
+            
+            tableView.reloadData()
+        }
+    }
+    
+    @IBAction func editButtonPressed(sender: UIButton) {
+        tableView.editing = !tableView.editing
+        
+        let buttonText = tableView.editing ? "Done" : "Edit"
+        sender.setTitle(buttonText, forState: .Normal)
+    }
+    
+    
+    func onPostsLoaded(notification: AnyObject) {
+        tableView.reloadData()
     }
 
 }

@@ -96,6 +96,20 @@
                                             <constraint firstAttribute="width" constant="154" id="ier-qV-Ays"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Is1-cP-Bb7">
+                                        <rect key="frame" x="8" y="35" width="47" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="Vil-Km-epI"/>
+                                            <constraint firstAttribute="width" constant="47" id="icX-cF-zar"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pzm-9M-qoD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1803921568627451" green="0.52941176470588236" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -104,7 +118,10 @@
                                     <constraint firstItem="s24-lS-R1M" firstAttribute="top" secondItem="hRn-Va-v59" secondAttribute="top" constant="34" id="G6R-aK-yW7"/>
                                     <constraint firstItem="0iF-Ec-XmX" firstAttribute="top" secondItem="hRn-Va-v59" secondAttribute="top" constant="17" id="HRc-rK-3Ij"/>
                                     <constraint firstItem="0iF-Ec-XmX" firstAttribute="centerX" secondItem="hRn-Va-v59" secondAttribute="centerX" id="XSG-dr-JUy"/>
+                                    <constraint firstItem="Is1-cP-Bb7" firstAttribute="leading" secondItem="hRn-Va-v59" secondAttribute="leading" constant="8" id="bVE-s8-TBw"/>
+                                    <constraint firstAttribute="bottom" secondItem="Is1-cP-Bb7" secondAttribute="bottom" constant="8" id="cYe-Dt-RSc"/>
                                     <constraint firstAttribute="bottom" secondItem="s24-lS-R1M" secondAttribute="bottom" constant="8" id="ly2-kh-3ax"/>
+                                    <constraint firstItem="Is1-cP-Bb7" firstAttribute="top" secondItem="hRn-Va-v59" secondAttribute="top" constant="35" id="xeV-BC-HtT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -181,7 +198,7 @@
                                 <rect key="frame" x="180" y="109" width="240" height="240"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="+ Add Picture">
-                                    <color key="titleColor" red="0.98039215686274506" green="0.65490196078431373" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addPictureButtonPressed:" destination="wgK-xZ-jfM" eventType="touchUpInside" id="wgc-eH-K1b"/>
