@@ -11,7 +11,7 @@ Take a photo and upload it with your own title and description.
 All graphical content provided by [Mark Price](https://www.udemy.com/user/mark-price-2/) from [Devslopes](http://devslopes.com) 
 
 ## Screenshots
-Below are screenshots of the splash screen, the view where posts are made, an example of a completed posts, and the user home screen <br>
+Below are screenshots of the splash screen, the view where posts are made, an example of a completed post, and the user home screen <br>
 ![alt tag](https://github.com/David-Sibrian08/MyHood/blob/master/Screenshots/splashScreen.png?raw=true)
 ![alt tag](https://github.com/David-Sibrian08/MyHood/blob/master/Screenshots/makePostVC.png?raw=true)
 ![alt tag](https://github.com/David-Sibrian08/MyHood/blob/master/Screenshots/makePostVC2.png?raw=true)
