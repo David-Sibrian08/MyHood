@@ -19,7 +19,7 @@ Below are screenshots of the splash screen, the view where posts are made, an ex
 
 ## Limitations/ Bugs
 Deleting a post causes all other posts to be deleted upon relaunch of the app. Posts will remain if none are deleted however. 
-Code can be found in <em>DataService.swift</em> function <em>deletePost</em>. 
+Code can be found [here](https://github.com/David-Sibrian08/MyHood/blob/2a9b3aa4ac25735ee69fc14b9e7fe3b6dadff07a/MyHood/DataService.swift#L47-L65). I may have made a mistake.
 
 ## License
 Free use allowed under the MIT Licence
